@@ -1,0 +1,55 @@
+{% extends 'food/base.html' %}
+{% block body %}
+<style>
+    .form-container {
+        max-width: 400px;
+        margin: 20px auto; /* Adjust the margin value to create the desired spacing */
+        padding: 20px;
+        background-color: black;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .form-container label {
+        display: block;
+        margin-top: 20px;
+        color: white;
+        font-style: italic;
+    }
+
+    .form-container input[type="text"],
+    .form-container textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        resize: vertical;
+    }
+
+    .form-container button[type="submit"] {
+        padding: 10px 20px;
+        background-color: #26e22d;
+        color: rgb(0, 0, 0);
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .form-container h2 {
+        text-align: center;
+        margin-bottom: 10px;
+        color: white;
+        font-size: large;
+        font-style: italic;
+    }
+</style>
+<div class="form-container">
+    <h2>Add Item</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+</div>
+{% endblock %}

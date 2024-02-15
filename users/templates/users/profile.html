@@ -1,0 +1,25 @@
+
+{% block body %}
+    <div class="profile-container">
+        <h1>{{ user.username }}</h1>
+        {% load static %}
+        <img src="{{ user.profile.image.url }}" class="profile-image">
+       
+        
+    </div>
+{% endblock %}
+
+<style>
+    .profile-container {
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    .profile-image {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-top: 20px;
+    }
+</style>

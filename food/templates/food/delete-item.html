@@ -1,0 +1,31 @@
+{% extends 'food/base.html' %}
+{% load static %}
+\{% block body %}
+    <link rel="stylesheet" href="{% static 'food/delete-p.css' %}">
+    <form method="post" action="{% url 'food:delete_item' item.id%}">
+        {% csrf_token %}p
+        <div class="container">
+            <h1>Are you sure you want delete {{item.item_name}}</h1>
+            <br>
+            <button id="btn" type="submit">
+                <p id="btnText">Confirm</p>
+                <div class="check-box">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+                        <path fill="transparent" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+                    </svg>
+                </div>
+            </button>
+        </div>
+    </form>
+    
+
+    <script type="text/javascript">
+        const btn = document.querySelector("#btn");
+        const btnText = document.querySelector("#btnText");
+
+        btn.onclick = () => {
+            btnText.innerHTML = "Thanks";
+            btn.classList.add("active");
+        };
+    </script>
+{% endblock %}
